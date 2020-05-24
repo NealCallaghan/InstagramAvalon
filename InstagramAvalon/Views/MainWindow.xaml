@@ -1,0 +1,53 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:InstagramAvalon.ViewModels;assembly=InstagramAvalon"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="510" d:DesignHeight="320" 
+        MinWidth="250"
+        MaxWidth="700"
+        MaxHeight="320"
+        MinHeight="320"
+        x:Class="InstagramAvalon.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="InstagramAvalon">
+
+    <!--<Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext--><!-->-->
+
+    <!--<TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top"
+                    HorizontalAlignment="Left"
+                    >
+            <TextBlock Margin="5,5,0,0" Text="User Name" />
+            <TextBox Margin="5,5,0,0" Width=" 200" Text="{Binding Username, Mode=TwoWay}" />
+            <TextBlock Margin="5,5,0,0" Text="Password" />
+            <TextBox Margin="5,5,0,0" Text="{Binding Password, Mode=TwoWay }" />
+        </StackPanel>
+
+        <StackPanel HorizontalAlignment="Stretch" >
+            
+            <TextBlock Margin="5,5,0,0" Text="Select Video" />
+            <DockPanel Margin="5,5,5,0" LastChildFill="True" >
+                <Button DockPanel.Dock="Right" Content="Choose File" Command="{Binding SelectVideoPath}" />
+                <TextBox IsReadOnly="True" Margin="0,0,5,0" Text="{Binding VideoPath, Mode=TwoWay}" />
+            </DockPanel>
+
+            <TextBlock Margin="5,5,0,0" Text="Select Image" />
+            <DockPanel Margin="5,5,5,0" LastChildFill="True" >
+                <Button DockPanel.Dock="Right" Content="Choose File" Command="{Binding SelectImagePath}" />
+                <TextBox IsReadOnly="True" Margin="0,0,5,0" Text="{Binding ImagePath, Mode=TwoWay}" />
+            </DockPanel>
+            
+            <TextBlock Margin="5,5,0,0" Text="Comments" />
+            <TextBox Margin="5,5,5,0" TextWrapping="Wrap" Height="50" Text="{Binding Comments, Mode=TwoWay}" />
+            
+            <DockPanel Margin="5,5,5,0" LastChildFill="false" >
+                <Button DockPanel.Dock="Right" Content="Upload Video" Command="{Binding UploadVideo}" IsEnabled="{Binding UploadEnabled}" />
+            </DockPanel>
+        </StackPanel>
+        
+    </DockPanel>    
+</Window>
